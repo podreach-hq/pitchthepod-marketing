@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitchThePod for Podcasters — Stop Hunting for Guests. Let Them Come to You.</title>
+<meta name="description" content="Join PitchThePod free and receive inbound pitches from vetted experts, coaches, and thought leaders who want to be on your show. Free forever for podcast hosts.">
+<meta property="og:title" content="PitchThePod for Podcasters — Guests Come to You. Free Forever.">
+<meta property="og:description" content="Stop hunting for guests. PitchThePod sends you pre-vetted guest pitches from experts your audience will love. Free for podcast hosts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pitchthepod.com/podcasters">
+<link rel="canonical" href="https://pitchthepod.com/podcasters">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pitchthepod.com/#organization",
+      "name": "PitchThePod",
+      "url": "https://pitchthepod.com"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://pitchthepod.com/podcasters#service",
+      "name": "PitchThePod for Podcast Hosts",
+      "provider": { "@id": "https://pitchthepod.com/#organization" },
+      "serviceType": "Podcast Guest Matching Platform",
+      "description": "Free podcast guest matching service for podcast hosts. Receive inbound pitches from vetted coaches, consultants, and experts who want to appear on your show.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free forever for podcast hosts"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": ["Podcast Hosts", "Podcast Producers", "Independent Podcasters"]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pitchthepod.com/podcasters#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is PitchThePod really free for podcast hosts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. PitchThePod is completely free for podcast hosts — no credit card, no trial, no catch. Guests pay to be on the platform. You never pay a cent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does PitchThePod work for podcasters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You create a free host profile describing your show and audience. Guests on PitchThePod who match your audience automatically pitch you. You receive their full profile, media kit, and talking points — then simply say yes or no."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of guests will pitch my show?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coaches, consultants, agency owners, and thought leaders who have paid to be on the platform and are serious about delivering value. Every guest has a complete media kit including bio, talking points, and past appearances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to book every guest who pitches me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely not. You have full control. Review every pitch on your own time and only accept guests who are the right fit for your audience. No pressure, no obligations."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Orbitron:wght@500;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black:    #07070A;
+  --espresso: #0C0C12;
+  --dark:     #111118;
+  --surface:  #16161F;
+  --rim:      #222232;
+  --smoke:    #4A4858;
+  --yellow:   #E8FF47;
+  --y-dim:    rgba(232,255,71,0.08);
+  --y-border: rgba(232,255,71,0.16);
+  --cream:    #F2EEE8;
+  --warm:     #C8C2BC;
+  --muted:    #A098A0;
+  /* Podcaster accent — a cool teal to differentiate from guest side */
+  --teal:     #47FFE8;
+  --t-dim:    rgba(71,255,232,0.07);
+  --t-border: rgba(71,255,232,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Film grain */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -200%;
+  width: 400%;
+  height: 400%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%,100%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}20%{transform:translate(3%,1%)}30%{transform:translate(-1%,4%)}40%{transform:translate(4%,-2%)}50%{transform:translate(-3%,3%)}60%{transform:translate(2%,-4%)}70%{transform:translate(-4%,1%)}80%{transform:translate(1%,3%)}90%{transform:translate(-2%,-1%)}
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 56px;
+  background: rgba(7,7,10,0.85);
+  backdrop-filter: blur(28px);
+  border-bottom: 1px solid rgba(71,255,232,0.07);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+}
+
+.logo-text .l1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--yellow);
+  letter-spacing: 0.2em;
+  display: block;
+  line-height: 1;
+}
+
+.logo-text .l2 {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.2em;
+  display: block;
+  line-height: 1;
+  opacity: 0.65;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--cream); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-text-link {
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-text-link:hover { color: var(--cream); }
+
+.nav-active {
+  font-size: 11px;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 9px;
+}
+
+.nav-cta {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--teal);
+  padding: 12px 26px;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+}
+
+.nav-cta:hover { box-shadow: 0 0 32px rgba(71,255,232,0.3); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-atmo {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 10%, rgba(71,255,232,0.035) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 5% 95%, rgba(20,110,100,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 50% at 95% 60%, rgba(50,140,70,0.03) 0%, transparent 50%),
+    #07070A;
+}
+
+.hero-scan {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(71,255,232,0.006) 2px,
+    rgba(71,255,232,0.006) 4px
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 56px 80px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: up 1s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.eyebrow::before, .eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.35;
+}
+
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(48px, 8.5vw, 116px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: up 1.3s 0.25s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-h1 .block { display: block; }
+.hero-h1 .teal { color: var(--teal); font-style: italic; }
+.hero-h1 .italic { font-style: italic; }
+
+.hero-diagnosis {
+  display: inline-block;
+  background: var(--t-dim);
+  border: 1px solid var(--t-border);
+  padding: 14px 32px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: up 1s 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-diagnosis p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--teal);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.hero-body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  margin-bottom: 52px;
+  opacity: 0;
+  animation: up 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-body strong { color: var(--cream); font-weight: 400; }
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: up 1s 0.75s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--teal);
+  color: var(--black);
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 20px 44px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s;
+}
+
+.btn-main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.14);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.btn-main:hover::after { transform: translateX(120%) skewX(-15deg); }
+.btn-main:hover { box-shadow: 0 0 64px rgba(71,255,232,0.3); }
+
+.btn-ghost {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(242,238,232,0.4);
+  padding-bottom: 3px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.btn-ghost:hover { color: var(--teal); border-color: var(--teal); }
+
+.hero-meta {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--warm);
+  letter-spacing: 0.12em;
+  opacity: 0;
+  animation: up 1s 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-meta strong { color: var(--teal); font-weight: 500; }
+
+/* Stats bar */
+.stats-bar {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(71,255,232,0.08);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  opacity: 0;
+  animation: up 1s 1.05s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.stat {
+  padding: 40px 56px;
+  border-right: 1px solid rgba(71,255,232,0.06);
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--teal);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat-l {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+@keyframes up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── THE PROBLEM ── */
+.problem {
+  padding: 160px 56px;
+  position: relative;
+}
+
+.problem::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 56px; right: 56px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(71,255,232,0.1), transparent);
+}
+
+.problem-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.problem-top {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.sec-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+
+.problem-top h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--cream);
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.problem-top h2 em { font-style: italic; color: var(--teal); }
+
+.problem-top p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--warm);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(71,255,232,0.05);
+  margin-bottom: 72px;
+}
+
+.pain-card {
+  background: var(--black);
+  padding: 48px 36px;
+  position: relative;
+  transition: background 0.4s;
+}
+
+.pain-card:hover { background: var(--espresso); }
+
+.pain-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--teal), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.pain-card:hover::before { opacity: 0.4; }
+
+.pain-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--teal);
+  opacity: 0.35;
+  margin-bottom: 24px;
+}
+
+.pain-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.pain-card p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+.solution-line {
+  text-align: center;
+  padding: 52px;
+  background: var(--t-dim);
+  border: 1px solid var(--t-border);
+  position: relative;
+}
+
+.solution-line::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.solution-line p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.8vw, 34px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.solution-line p strong {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--teal);
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  background: var(--espresso);
+  border-top: 1px solid rgba(71,255,232,0.07);
+  border-bottom: 1px solid rgba(71,255,232,0.07);
+  padding: 160px 56px;
+}
+
+.how-inner { max-width: 960px; margin: 0 auto; }
+
+.how-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.how-top h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+}
+
+.how-top h2 em { font-style: italic; color: var(--teal); }
+
+.how-top-right p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--warm);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  padding-bottom: 8px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(71,255,232,0.05);
+}
+
+.step-card {
+  background: var(--espresso);
+  padding: 48px 32px;
+  position: relative;
+  transition: background 0.4s;
+}
+
+.step-card:hover { background: var(--dark); }
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.step-card:hover::before { transform: scaleX(1); }
+
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: rgba(71,255,232,0.1);
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.04em;
+}
+
+.step-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.step-card p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--warm);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* ── WHAT YOU GET ── */
+.benefits {
+  padding: 160px 56px;
+  position: relative;
+}
+
+.benefits::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 56px; right: 56px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(71,255,232,0.1), transparent);
+}
+
+.benefits-inner { max-width: 960px; margin: 0 auto; }
+
+.benefits-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+
+.benefits-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+}
+
+.benefits-header h2 em { font-style: italic; color: var(--teal); }
+
+.benefits-header-right p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--warm);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.04);
+}
+
+.benefit {
+  background: var(--black);
+  padding: 44px 36px;
+  position: relative;
+  transition: background 0.4s;
+}
+
+.benefit:hover { background: var(--espresso); }
+
+.benefit-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--teal), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.benefit:hover .benefit-bar { opacity: 0.5; }
+
+.benefit-n {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--teal);
+  opacity: 0.35;
+  margin-bottom: 28px;
+}
+
+.benefit h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.benefit p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* ── GUEST PREVIEW ── */
+.guest-preview {
+  background: var(--espresso);
+  border-top: 1px solid rgba(71,255,232,0.07);
+  padding: 160px 56px;
+}
+
+.guest-preview-inner { max-width: 960px; margin: 0 auto; }
+
+.guest-preview-top {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.guest-preview-top h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--cream);
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+
+.guest-preview-top h2 em { font-style: italic; color: var(--teal); }
+
+.guest-preview-top p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--warm);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.85;
+}
+
+/* Mock guest cards */
+.guest-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(71,255,232,0.05);
+}
+
+.guest-card {
+  background: var(--dark);
+  padding: 36px 32px;
+  position: relative;
+  transition: background 0.4s;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.guest-card:hover {
+  background: var(--espresso);
+  border-bottom-color: var(--teal);
+}
+
+.guest-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.g-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--t-dim);
+  border: 1px solid var(--t-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+.g-info .g-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+}
+
+.g-info .g-role {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+
+.g-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.g-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--t-dim);
+  border: 1px solid var(--t-border);
+  padding: 4px 10px;
+}
+
+.g-bio {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--warm);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.g-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.g-appearances {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.g-accept {
+  font-family: 'Orbitron', monospace;
+  font-size: 7px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--teal);
+  padding: 7px 16px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.3s;
+}
+
+.g-accept:hover { opacity: 0.85; }
+
+.guest-preview-note {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  font-style: italic;
+}
+
+/* ── PRICING ── */
+.pricing {
+  border-top: 1px solid rgba(71,255,232,0.07);
+  padding: 160px 56px;
+}
+
+.pricing-inner {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 80px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.pricing h2 em { font-style: italic; color: var(--teal); }
+
+.pricing-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--warm);
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.pricing-context {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 64px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.pricing-context strong { color: var(--cream); font-weight: 400; }
+
+.p-card {
+  background: var(--dark);
+  border: 1px solid rgba(71,255,232,0.12);
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+
+.p-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--teal) 40%, var(--teal) 60%, transparent 100%);
+}
+
+.p-card-top {
+  padding: 56px 52px 44px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.p-card-top-left { }
+
+.p-free {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 96px;
+  font-weight: 300;
+  color: var(--teal);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.p-period {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.p-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--warm);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  max-width: 320px;
+}
+
+.p-badge {
+  flex-shrink: 0;
+  background: var(--t-dim);
+  border: 1px solid var(--t-border);
+  padding: 20px 28px;
+  text-align: center;
+  align-self: center;
+}
+
+.p-badge-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  line-height: 1.6;
+}
+
+.p-features {
+  padding: 44px 52px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.p-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--warm);
+  letter-spacing: 0.02em;
+}
+
+.p-feat:nth-last-child(-n+2) { border-bottom: none; }
+.p-dash { color: var(--teal); flex-shrink: 0; font-size: 10px; margin-top: 2px; }
+
+.p-cta {
+  padding: 44px 52px;
+}
+
+.p-cta .btn-main { width: 100%; justify-content: center; font-size: 10px; }
+
+.p-note {
+  margin-top: 18px;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* ── FAQ ── */
+.faq {
+  background: var(--espresso);
+  border-top: 1px solid rgba(71,255,232,0.07);
+  padding: 160px 56px;
+}
+
+.faq-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 100px;
+}
+
+.faq-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  position: sticky;
+  top: 110px;
+}
+
+.faq-left h2 em { font-style: italic; color: var(--teal); }
+
+.faq-q {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 32px 0;
+}
+
+.faq-q:first-child { padding-top: 0; }
+
+.faq-q h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.faq-q p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--warm);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* ── FINALE ── */
+.finale {
+  border-top: 1px solid rgba(71,255,232,0.07);
+  padding: 180px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.finale-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(71,255,232,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.finale-inner { position: relative; z-index: 2; }
+
+.finale h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 8vw, 108px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 36px;
+}
+
+.finale h2 em { font-style: italic; color: var(--teal); }
+
+.finale p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--warm);
+  max-width: 440px;
+  margin: 0 auto 56px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* ── CROSSLINK ── */
+.crosslink {
+  background: var(--espresso);
+  border-top: 1px solid rgba(232,255,71,0.07);
+  padding: 72px 56px;
+}
+
+.crosslink-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.crosslink-text .cl-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.crosslink-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--warm);
+  line-height: 1.4;
+}
+
+.crosslink-text p strong {
+  font-style: normal;
+  color: var(--cream);
+  font-weight: 400;
+}
+
+.btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--yellow);
+  color: var(--black);
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 18px 36px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: box-shadow 0.3s;
+}
+
+.btn-yellow:hover { box-shadow: 0 0 40px rgba(232,255,71,0.25); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(71,255,232,0.06);
+  padding: 52px 56px;
+}
+
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo .l1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--yellow);
+  letter-spacing: 0.22em;
+}
+
+.footer-logo .l2 {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.22em;
+  opacity: 0.5;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--cream); }
+
+.footer-copy {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--smoke);
+  letter-spacing: 0.06em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 0 28px; }
+  .nav-links { display: none; }
+  .hero-content { padding: 140px 28px 60px; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .problem, .how, .benefits, .guest-preview, .pricing, .faq, .finale, .crosslink { padding-left: 28px; padding-right: 28px; }
+  .pain-grid { grid-template-columns: 1fr 1fr; }
+  .how-top { grid-template-columns: 1fr; gap: 28px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .benefits-header { grid-template-columns: 1fr; gap: 28px; }
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .guest-cards { grid-template-columns: 1fr 1fr; }
+  .p-card-top { flex-direction: column; }
+  .p-features { grid-template-columns: 1fr; }
+  .faq-inner { grid-template-columns: 1fr; gap: 48px; }
+  .faq-left h2 { position: static; }
+  .crosslink-inner { flex-direction: column; align-items: flex-start; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .pain-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .guest-cards { grid-template-columns: 1fr; }
+  .p-card-top, .p-features, .p-cta { padding-left: 28px; padding-right: 28px; }
+  .hero-h1 { font-size: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+      <rect x="17" y="4" width="14" height="22" rx="7" fill="none" stroke="#E8FF47" stroke-width="2"/>
+      <path d="M24 30 L24 40" stroke="#E8FF47" stroke-width="2" stroke-linecap="round"/>
+      <path d="M16 40 L32 40" stroke="#E8FF47" stroke-width="2" stroke-linecap="round"/>
+      <path d="M10 18 Q8 24 10 30" stroke="#E8FF47" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M38 18 Q40 24 38 30" stroke="#E8FF47" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+    <div class="logo-text">
+      <span class="l1">PITCH</span>
+      <span class="l2">THE POD</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#guests">See Guests</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/" class="nav-text-link">For Guests</a>
+    <span class="nav-active">For Podcasters</span>
+    <a href="#pricing" class="nav-cta">Join Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-atmo"></div>
+  <div class="hero-scan"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow">For Podcast Hosts</div>
+
+    <h1 class="hero-h1">
+      <span class="block">Stop Hunting</span>
+      <span class="block">for Guests.</span>
+      <span class="block italic">Let Them</span>
+      <span class="block teal">Come to You.</span>
+    </h1>
+
+    <div class="hero-diagnosis">
+      <p>Receive inbound pitches from vetted experts your audience will love — free forever.</p>
+    </div>
+
+    <p class="hero-body">
+      Finding great guests is a <strong>full-time job</strong> you didn't sign up for.
+      PitchThePod flips the model — guests who are serious about delivering value
+      come to you, pre-vetted, with their full media kit ready.
+      You just <strong>say yes or no.</strong>
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-main">
+        Join Free — No Credit Card
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#guests" class="btn-ghost">See example guests</a>
+    </div>
+    <div class="hero-meta"><strong>Free forever</strong> for podcast hosts &nbsp;·&nbsp; No credit card required</div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-n">Free</div>
+      <div class="stat-l">Forever for Hosts</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">100%</div>
+      <div class="stat-l">Inbound Pitches</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">Vetted</div>
+      <div class="stat-l">Guests Only</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">You</div>
+      <div class="stat-l">Stay in Control</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="problem-top">
+      <div class="sec-label">Sound Familiar?</div>
+      <h2>Great Content Deserves<br><em>Great Guests.</em></h2>
+      <p>You started your podcast to share ideas and build an audience — not to spend half your week chasing down guests who ghost you, cancel last minute, or show up completely unprepared.</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <h3>Guest Hunting Is Exhausting</h3>
+        <p>Hours spent searching for the right people, crafting outreach, following up, getting ghosted. It pulls you away from the actual work of making great content.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <h3>You Can't Vet Everyone</h3>
+        <p>Random cold pitches from your contact form are a gamble. Half don't know your audience, half just want a backlink. Finding the signal in the noise is a full-time job.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <h3>Your Best Guests Come by Accident</h3>
+        <p>The guests your audience loves most are usually referrals or lucky finds. There's no reliable system to consistently bring that caliber of guest into your pipeline.</p>
+      </div>
+    </div>
+
+    <div class="solution-line">
+      <p>PitchThePod gives you a <strong>steady stream of pre-vetted guests</strong> who already want to be on your show — and it costs you <strong>absolutely nothing.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="how-top">
+      <h2>Four Steps.<br>Zero Effort.<br><em>All Upside.</em></h2>
+      <div class="how-top-right">
+        <div class="sec-label">How It Works</div>
+        <p>You set up your show profile once. From that point on, pre-qualified guests pitch you automatically. You review on your own schedule and book only the ones you want. That's the entire process.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Create Your Show Profile</h3>
+        <p>Tell us about your show, your audience, and the kinds of guests that deliver value for your listeners. Takes five minutes. Done once.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Guests Pitch You Directly</h3>
+        <p>Experts, coaches, and thought leaders on PitchThePod see your show and pitch you directly. Every pitch is personalized to your audience and format.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Review Full Profiles</h3>
+        <p>Every pitch comes with the guest's complete media kit — bio, talking points, past appearances, and audience relevance. Everything you need to decide in 60 seconds.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Book Who You Want</h3>
+        <p>Accept the guests you love, pass on the rest. You stay in complete control of your calendar and your content. No pressure. No obligations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-header">
+      <h2>Everything You Need.<br><em>Nothing You Don't.</em></h2>
+      <div class="benefits-header-right">
+        <div class="sec-label">What You Get</div>
+        <p>PitchThePod is built to give podcast hosts a consistent pipeline of quality guests without adding a single extra task to their week.</p>
+      </div>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-bar"></div>
+        <div class="benefit-n">01</div>
+        <h3>Inbound Guest Pipeline</h3>
+        <p>Stop outbound hunting forever. Qualified guests who want to be on your show come directly to you — consistently, automatically, on autopilot.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-bar"></div>
+        <div class="benefit-n">02</div>
+        <h3>Complete Media Kits</h3>
+        <p>Every guest arrives with a full profile — bio, headshot, talking points, social proof, and past appearances. You know exactly what you're getting before you say yes.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-bar"></div>
+        <div class="benefit-n">03</div>
+        <h3>Audience-Matched Pitches</h3>
+        <p>Guests are matched to your show based on your audience profile. No random cold pitches. Every guest in your inbox is already relevant to your listeners.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-bar"></div>
+        <div class="benefit-n">04</div>
+        <h3>You Control Everything</h3>
+        <p>Accept, decline, or ignore any pitch at any time. Your show, your standards, your calendar. PitchThePod never books anyone without your explicit approval.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-bar"></div>
+        <div class="benefit-n">05</div>
+        <h3>Serious Guests Only</h3>
+        <p>Every guest on the platform has invested in being here. That self-selection filters out time-wasters and ensures the people pitching you are genuinely committed to delivering value.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-bar"></div>
+        <div class="benefit-n">06</div>
+        <h3>Free. Forever.</h3>
+        <p>No credit card. No trial. No hidden fees. Podcast hosts are always free on PitchThePod — full stop. Guests pay to be on the platform. You never pay a cent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUEST PREVIEW -->
+<section class="guest-preview" id="guests">
+  <div class="guest-preview-inner">
+    <div class="guest-preview-top">
+      <div class="sec-label">Who's Pitching You</div>
+      <h2>The Kind of Guests<br>Already <em>Waiting for You.</em></h2>
+      <p>Every guest on PitchThePod is a coach, consultant, or expert who has invested in being here and is serious about delivering real value to your audience.</p>
+    </div>
+
+    <div class="guest-cards">
+      <div class="guest-card">
+        <div class="guest-card-top">
+          <div class="g-avatar">JM</div>
+          <div class="g-info">
+            <div class="g-name">Jason M.</div>
+            <div class="g-role">Business Growth Coach</div>
+          </div>
+        </div>
+        <div class="g-topics">
+          <span class="g-tag">Revenue Growth</span>
+          <span class="g-tag">Agency Ops</span>
+          <span class="g-tag">Mindset</span>
+        </div>
+        <p class="g-bio">Helped 200+ coaches break through the $100k ceiling. Specializes in visibility strategy and turning expertise into consistent client flow.</p>
+        <div class="g-footer">
+          <span class="g-appearances">14 past appearances</span>
+          <button class="g-accept">Accept →</button>
+        </div>
+      </div>
+      <div class="guest-card">
+        <div class="guest-card-top">
+          <div class="g-avatar">SR</div>
+          <div class="g-info">
+            <div class="g-name">Sarah R.</div>
+            <div class="g-role">Marketing Agency Owner</div>
+          </div>
+        </div>
+        <div class="g-topics">
+          <span class="g-tag">Local SEO</span>
+          <span class="g-tag">Lead Gen</span>
+          <span class="g-tag">Agency Scale</span>
+        </div>
+        <p class="g-bio">Runs a 7-figure local SEO agency. Shares practical frameworks for landing high-ticket clients without paid ads or a big social following.</p>
+        <div class="g-footer">
+          <span class="g-appearances">8 past appearances</span>
+          <button class="g-accept">Accept →</button>
+        </div>
+      </div>
+      <div class="guest-card">
+        <div class="guest-card-top">
+          <div class="g-avatar">DK</div>
+          <div class="g-info">
+            <div class="g-name">David K.</div>
+            <div class="g-role">Sales Consultant & Speaker</div>
+          </div>
+        </div>
+        <div class="g-topics">
+          <span class="g-tag">Sales Systems</span>
+          <span class="g-tag">Closing</span>
+          <span class="g-tag">B2B Growth</span>
+        </div>
+        <p class="g-bio">Former VP of Sales turned consultant. Teaches small business owners how to build a repeatable sales process that closes without feeling pushy.</p>
+        <div class="g-footer">
+          <span class="g-appearances">22 past appearances</span>
+          <button class="g-accept">Accept →</button>
+        </div>
+      </div>
+    </div>
+    <p class="guest-preview-note">Sample profiles for illustration — real guest profiles include full bios, headshots, talking points, and social proof.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="sec-label">Your Investment</div>
+    <h2>Completely.<br><em>Free.</em></h2>
+    <p class="pricing-sub">No catch. No credit card. No expiration date.</p>
+    <p class="pricing-context">Guests pay to be on PitchThePod. You never pay a cent — not now, not ever. We built the platform this way because <strong>a marketplace only works when hosts have zero friction to join.</strong> So we removed it entirely.</p>
+
+    <div class="p-card">
+      <div class="p-card-top">
+        <div class="p-card-top-left">
+          <div class="p-free">$0</div>
+          <div class="p-period">Forever &nbsp;·&nbsp; No credit card required</div>
+          <p class="p-desc">Full access to your guest pipeline, your show profile, and your booking dashboard — completely free for podcast hosts, always.</p>
+        </div>
+        <div class="p-badge">
+          <div class="p-badge-text">FREE<br>FOREVER<br>FOR HOSTS</div>
+        </div>
+      </div>
+
+      <div class="p-features">
+        <div class="p-feat"><span class="p-dash">—</span> Inbound guest pitches</div>
+        <div class="p-feat"><span class="p-dash">—</span> Full guest media kits</div>
+        <div class="p-feat"><span class="p-dash">—</span> Audience-matched filtering</div>
+        <div class="p-feat"><span class="p-dash">—</span> Booking dashboard</div>
+        <div class="p-feat"><span class="p-dash">—</span> Accept / decline controls</div>
+        <div class="p-feat"><span class="p-dash">—</span> Show profile page</div>
+        <div class="p-feat"><span class="p-dash">—</span> Unlimited guest reviews</div>
+        <div class="p-feat"><span class="p-dash">—</span> Priority support</div>
+      </div>
+
+      <div class="p-cta">
+        <a href="#" class="btn-main">
+          Create My Free Host Profile
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="p-note">No credit card &nbsp;·&nbsp; Free forever &nbsp;·&nbsp; Cancel anytime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-left">
+      <h2>Your<br><em>Questions,<br>Answered.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-q">
+        <h3>Is this actually free? What's the catch?</h3>
+        <p>No catch. Podcast hosts are free forever. Guests pay $249/month to be on the platform and pitch shows. You never pay anything — not now, not when we grow, not ever. We built the business model this way intentionally.</p>
+      </div>
+      <div class="faq-q">
+        <h3>What kind of guests will pitch my show?</h3>
+        <p>Coaches, consultants, agency owners, and thought leaders who have invested in being here and are serious about delivering value. Every guest has a complete media kit and has been filtered by topic relevance to your audience profile.</p>
+      </div>
+      <div class="faq-q">
+        <h3>Do I have to book every guest who pitches me?</h3>
+        <p>Absolutely not. You have full control. Review every pitch on your own schedule and only accept guests who are genuinely the right fit for your audience. Decline, ignore, or accept — it's entirely up to you.</p>
+      </div>
+      <div class="faq-q">
+        <h3>How do I know guests will be prepared?</h3>
+        <p>Every guest on PitchThePod has paid to be here and is actively trying to build their brand through podcast appearances. That investment alone filters out people who aren't serious. Their full talking points and bio are available before you say yes.</p>
+      </div>
+      <div class="faq-q">
+        <h3>What if I don't get pitches that fit my show?</h3>
+        <p>You can update your show profile and audience description at any time to fine-tune the kinds of guests who reach you. Our matching gets smarter the more specific you are about your audience.</p>
+      </div>
+      <div class="faq-q">
+        <h3>How is this different from other podcast guest platforms?</h3>
+        <p>Most platforms charge hosts a fee and show you a database you have to dig through. PitchThePod flips it — guests come to you, pre-vetted, with their pitch already written. Zero work on your end. Zero cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="finale">
+  <div class="finale-glow"></div>
+  <div class="finale-inner">
+    <div class="sec-label">The Decision</div>
+    <h2>Better Guests.<br>Zero Effort.<br><em>Free Forever.</em></h2>
+    <p>Your show deserves great guests. Now you have a pipeline that delivers them — without the hunt, without the hustle, without the cost.</p>
+    <a href="#pricing" class="btn-main">
+      Create My Free Host Profile
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- CROSSLINK TO GUEST PAGE -->
+<div class="crosslink">
+  <div class="crosslink-inner">
+    <div class="crosslink-text">
+      <div class="cl-label">Are You a Coach or Agency Owner?</div>
+      <p>Want to <strong>get booked on podcasts</strong> and tap into audiences that already trust the host?</p>
+    </div>
+    <a href="/" class="btn-yellow">
+      See the Guest Platform
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <span class="l1">PITCH</span><span class="l2">THEPOD</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#pricing">Join Free</a></li>
+      <li><a href="/">For Guests</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/terms">Terms</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 PitchThePod</div>
+  </div>
+</footer>
+
+</body>
+</html>
